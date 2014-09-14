@@ -95,13 +95,13 @@ public abstract class GLWallpaperService extends WallpaperService {
 		}
 		
 		protected void setPreserveEGLContextOnPause(boolean preserve) {
-			if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.HONEYCOMB) {
+		//	if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.HONEYCOMB) {
 				if (LoggerConfig.ON) {
 					Log.d(TAG, "setPreserveEGLContextOnPause(" + preserve + ")");
 				}
 	
-				glSurfaceView.setPreserveEGLContextOnPause(preserve);
-			}
+		//		glSurfaceView.setPreserveEGLContextOnPause(preserve);
+		//	}
 		}		
 
 		protected void setEGLContextClientVersion(int version) {

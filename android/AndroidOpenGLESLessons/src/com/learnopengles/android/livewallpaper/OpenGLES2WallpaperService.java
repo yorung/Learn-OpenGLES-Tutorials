@@ -4,6 +4,8 @@ import android.app.ActivityManager;
 import android.content.Context;
 import android.content.pm.ConfigurationInfo;
 import android.opengl.GLSurfaceView.Renderer;
+import android.util.Log;
+import android.view.MotionEvent;
 import android.view.SurfaceHolder;
 
 public abstract class OpenGLES2WallpaperService extends GLWallpaperService {
@@ -13,10 +15,29 @@ public abstract class OpenGLES2WallpaperService extends GLWallpaperService {
 	}
 	
 	class OpenGLES2Engine extends GLWallpaperService.GLEngine {
+		static final String TAG = "OpenGLES2Engine";
+		
+		@Override
+		public void onTouchEvent(MotionEvent e) {
+			super.onTouchEvent(e);
+			switch (e.getAction()) {
+			case MotionEvent.ACTION_MOVE:
+				Log.v(TAG, "ACTION_MOVE");
+				break;
+			case MotionEvent.ACTION_DOWN:
+				Log.v(TAG, "ACTION_DOWN");
+				break;
+			case MotionEvent.ACTION_UP:
+				Log.v(TAG, "ACTION_UP");
+				break;
+			}
+		}
 
 		@Override
 		public void onCreate(SurfaceHolder surfaceHolder) {
 			super.onCreate(surfaceHolder);
+
+			setTouchEventsEnabled(true);
 			
 			// Check if the system supports OpenGL ES 2.0.
 			final ActivityManager activityManager = (ActivityManager) getSystemService(Context.ACTIVITY_SERVICE);
