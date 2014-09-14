@@ -15,7 +15,7 @@ public abstract class OpenGLES2WallpaperService extends GLWallpaperService {
 	}
 	
 	class OpenGLES2Engine extends GLWallpaperService.GLEngine {
-		static final String TAG = "OpenGLES2Engine";
+		static final String TAG = "lerbgrnlivewallpaper";
 
 		@Override
 		public void onTouchEvent(MotionEvent e) {
