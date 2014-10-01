@@ -13,7 +13,8 @@ public abstract class OpenGLES2WallpaperService extends GLWallpaperService {
 	public Engine onCreateEngine() {
 		return new OpenGLES2Engine();
 	}
-	
+
+	static public float touchX, touchY;
 	class OpenGLES2Engine extends GLWallpaperService.GLEngine {
 		static final String TAG = "lerbgrnlivewallpaper";
 
@@ -23,12 +24,18 @@ public abstract class OpenGLES2WallpaperService extends GLWallpaperService {
 			switch (e.getAction()) {
 			case MotionEvent.ACTION_MOVE:
 				Log.v(TAG, "ACTION_MOVE");
+				touchX = e.getX();
+				touchY = e.getY();
 				break;
 			case MotionEvent.ACTION_DOWN:
 				Log.v(TAG, "ACTION_DOWN");
+				touchX = e.getX();
+				touchY = e.getY();
 				break;
 			case MotionEvent.ACTION_UP:
 				Log.v(TAG, "ACTION_UP");
+				touchX = e.getX();
+				touchY = e.getY();
 				break;
 			}
 		}
